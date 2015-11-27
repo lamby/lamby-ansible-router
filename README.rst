@@ -43,3 +43,9 @@ Should work::
 ANSIBLE_SCP_IF_SSH=1 needed.
 
 No Python so no templating?
+
+
+Links
+-----
+
+ * https://github.com/lefant/ansible-openwrt
