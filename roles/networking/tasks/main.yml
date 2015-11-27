@@ -1,0 +1,12 @@
+---
+- name: /etc/config
+  action: template
+    src={{ item }}
+    dest=/etc/config/{{ item }}
+    mode=644
+  with_items:
+    - firewall
+    - network
+    - wireless
+  notify:
+    restart networking
