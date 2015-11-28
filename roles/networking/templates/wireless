@@ -9,5 +9,6 @@ config wifi-iface
 	option device   radio0
 	option network  lan
 	option mode     ap
-	option ssid     OpenWrt
-	option encryption none
+	option ssid     {{ wireless_ssid }}
+	option encryption psk2
+	option key	{{ wireless_key }}
