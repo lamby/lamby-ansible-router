@@ -52,3 +52,4 @@ Links
 -----
 
  * https://github.com/lefant/ansible-openwrt
+ * http://blog.philippklaus.de/2012/03/openwrt-on-a-tp-link-tl-mr3020-router/
