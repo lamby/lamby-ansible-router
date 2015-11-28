@@ -6,3 +6,4 @@ files:
 
 wireless_ap_ssid: lambynet
 wireless_ap_key: 07d44792a621d710f337d4aeb44f6c6360a95f5abfee465ee421ef585a8f68a7
+wireless_ap_encryption: psk2
