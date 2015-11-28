@@ -9,6 +9,6 @@ config wifi-iface
 	option device   radio0
 	option network  lan
 	option mode     ap
-	option ssid     {{ wireless_ssid }}
+	option ssid     {{ wireless_ap_ssid }}
 	option encryption psk2
-	option key	{{ wireless_key }}
+	option key	{{ wireless_ap_key }}
