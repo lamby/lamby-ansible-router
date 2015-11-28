@@ -30,7 +30,7 @@ More info here: https://wiki.openwrt.org/doc/howto/generic.failsafe
 
     * ``passwd``
 
-    * ``sed -i -e 's@192.168.0.1@192.168.2.1@g' /etc/config/network``
+    * ``sed -i -e 's@192.168.1.1@192.168.2.1@g' /etc/config/network``
 
     * ``/etc/init.d/network restart``
 
