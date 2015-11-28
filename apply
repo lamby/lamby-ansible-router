@@ -2,4 +2,4 @@
 
 export ANSIBLE_SCP_IF_SSH=1
 
-exec ansible-playbook -i hosts -u root playbook.yml "${@}"
+exec ansible-playbook -i hosts -u root playbook.yml --diff "${@}"

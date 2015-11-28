@@ -1,5 +1,6 @@
 ---
 - name: lamby-router
   hosts: all
+  gather_facts: false
   roles:
     - networking

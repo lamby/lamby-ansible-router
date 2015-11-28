@@ -1,12 +1,21 @@
 ---
-- name: /etc/config
-  action: template
+- name: get original
+  local_action: raw
+    ssh root@{{ inventory_hostname }} 'cat /etc/config/{{ item }}' > /tmp/{{ item }}
+  with_items: "{{ files }}"
+  changed_when: false
+
+- name: template
+  local_action: template
     src={{ item }}
-    dest=/etc/config/{{ item }}
+    dest=/tmp/{{ item }}
     mode=644
-  with_items:
-    - firewall
-    - network
-    - wireless
+  with_items: "{{ files }}"
   notify:
-    restart networking
+    restart network
+
+- name: copy
+  local_action: raw
+    cat /tmp/{{ item }} | ssh root@{{ inventory_hostname }} 'cat > /etc/config/{{ item }}'
+  with_items: "{{ files }}"
+  changed_when: false
