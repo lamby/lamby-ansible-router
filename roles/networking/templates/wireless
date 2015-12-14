@@ -20,6 +20,8 @@ config wifi-iface
 	option encryption '{{ wireless_sta_encryption }}'
 	option device 'radio0'
 	option mode 'sta'
+	{% if wireless_sta_bssid|default('') %}
 	option bssid '{{ wireless_sta_bssid }}'
+	{% endif %}
 	option key '{{ wireless_sta_key }}'
 
