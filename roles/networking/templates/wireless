@@ -5,7 +5,6 @@ config wifi-device 'radio0'
 	option path 'platform/ar933x_wmac'
 	option htmode 'HT20'
 	option disabled '0'
-	option channel '8'
 
 config wifi-iface
 	option device 'radio0'
