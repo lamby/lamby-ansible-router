@@ -1,6 +1,10 @@
 lamby-ansible-router
 ====================
 
+Notes
+-----
+
+Replace apostrophe's in SSID names with '\''
 
 Failsafe mode
 -------------
@@ -24,7 +28,9 @@ More info here: https://wiki.openwrt.org/doc/howto/generic.failsafe
 
  * The device will reboot.
 
- * Reconnect ethernet via DHCP.
+ * Reconnect ethernet via DHCP::
+
+   * ``dhclient eth0``
 
  * ``telnet 192.168.1.1``
 
@@ -34,11 +40,23 @@ More info here: https://wiki.openwrt.org/doc/howto/generic.failsafe
 
     * ``/etc/init.d/network restart``
 
- * Reconnect ethernet again via DHCP as we changed IP range
+ * Reconnect ethernet again via DHCP as we changed IP range::
+
+   * ``dhclient eth0``
+
+ * ``ssh-keygen -f "/home/lamby/.ssh/known_hosts" -R 192.168.2.1``
 
  * ``ssh root@192.168.2.1 'cat >> /etc/dropbear/authorized_keys && chmod 0600 /etc/dropbear/authorized_keys && chmod 0700 /etc/dropbear' < ~/.ssh/id_rsa.pub``
 
  * ``./apply``
+
+ * ``ssh root@192.168.2.1``
+
+ * ``opkg update``
+
+ * ``opkg install kmod-rtl8192cu``
+
+ * http://192.168.2.1/
 
 
 Firmware images

@@ -1,0 +1,35 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+(
+	sleep 3
+
+	. /etc/diag.sh
+
+	logger "Inside rc.local"
+	set_state preinit
+
+	if [ -f /etc/config/wireless.bak ]
+	then
+		logger "In failsafe mode"
+		set_state failsafe
+		return 0
+	fi
+
+	sleep 30
+
+	if iw dev | grep -qs "{{ wireless_ap_ssid }}"
+	then
+		set_state done
+		return 0
+	fi
+
+	logger "Wireless is down, setting failsafe config and rebooting"
+	mv /etc/config/wireless /etc/config/wireless.bak || true
+	cp /etc/config/wireless.failsafe /etc/config/wireless
+
+	sync
+	reboot
+) &
+
+exit 0

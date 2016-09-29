@@ -20,15 +20,3 @@ config wifi-iface
 	option ssid '{{ wireless_ap_ssid }}'
 	option key '{{ wireless_ap_key }}'
 	option encryption 'psk2'
-
-config wifi-iface
-	option network 'wwan'
-	option ssid '{{ wireless_sta_ssid }}'
-	option encryption '{{ wireless_sta_encryption }}'
-	option device 'radio0'
-	option mode 'sta'
-	{% if wireless_sta_bssid|default('') %}
-	option bssid '{{ wireless_sta_bssid }}'
-	{% endif %}
-	option key '{{ wireless_sta_key }}'
-
