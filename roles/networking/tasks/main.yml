@@ -1,7 +1,7 @@
 ---
 - name: get original
   local_action: raw
-    ssh root@{{ inventory_hostname }} 'cat /etc/config/{{ item }}' > /tmp/{{ item }}
+    ssh root@{{ inventory_hostname }} 'cat /etc/config/{{ item }} || true' > /tmp/{{ item }}
   with_items: "{{ files }}"
   changed_when: false
 
